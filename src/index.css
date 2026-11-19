@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; color: #e2e8f0; background: #020617; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: #020617; }
+button, input { font: inherit; }
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 999px; }
+
+.grid-bg { background-image: linear-gradient(rgba(34,211,238,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.035) 1px, transparent 1px); background-size: 36px 36px; }
+.glass { background: linear-gradient(145deg, rgba(15,23,42,.92), rgba(2,6,23,.88)); border: 1px solid rgba(100,116,139,.25); box-shadow: 0 20px 60px rgba(0,0,0,.28); backdrop-filter: blur(16px); }
+.gold-text { background: linear-gradient(135deg,#fde68a,#d97706,#fef3c7); -webkit-background-clip:text; background-clip:text; color: transparent; }
+.orb { width: 198px; height: 198px; border-radius: 50%; position: relative; background: radial-gradient(circle at 38% 32%, rgba(103,232,249,.9), rgba(8,145,178,.32) 24%, rgba(2,6,23,.95) 58%, #020617 70%); box-shadow: 0 0 25px rgba(34,211,238,.5), inset 0 0 28px rgba(34,211,238,.45), 0 0 80px rgba(8,145,178,.18); animation: float 4s ease-in-out infinite; }
+.orb::before, .orb::after { content:''; position:absolute; inset:14px; border:1px solid rgba(103,232,249,.55); border-radius:50%; border-left-color:transparent; border-right-color:transparent; animation: spin 7s linear infinite; }
+.orb::after { inset:-12px; border-color:rgba(245,158,11,.32); border-top-color:transparent; animation-duration:11s; animation-direction:reverse; }
+.orb-core { position:absolute; inset:74px; border-radius:50%; background:white; box-shadow:0 0 18px white,0 0 38px #22d3ee; }
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes float { 50% { transform:translateY(-10px); } }
+@keyframes scan { 0% { transform:translateY(-100%); opacity:0 } 20% { opacity:1 } 100% { transform:translateY(500%); opacity:0 } }
+.scanline { animation:scan 3.2s linear infinite; }
+.type-caret::after { content:'|'; animation:blink .8s infinite; }
+@keyframes blink { 50% { opacity:0 } }
+
+.splash-enter { animation:splashIn .8s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes splashIn { from { opacity:0; transform:scale(.96) } to { opacity:1; transform:scale(1) } }
